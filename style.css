@@ -1,0 +1,220 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: rgb(32, 32, 32);
+}
+.gamebox{
+    overflow: hidden;
+    position: relative;
+    justify-self: center;
+    margin: 40px auto;
+    border: solid 3px black;
+    border-radius: 8px;
+    width: 50rem;
+    height: 26rem;
+}
+.background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+.background img{
+    object-fit: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    filter: blur(3px);
+}
+
+/*Personagens*/
+.player{
+    background-image: url(img/personagens/lula.png);
+    object-fit: cover;
+    background-size: cover;
+    position: absolute;
+    bottom: 5rem;
+    width: 10rem;
+    height: 10rem;
+
+}
+.enemy{
+    background-image: url(img/personagens/bolsonaro.png);
+    object-fit: cover;
+    background-size: 4rem;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    position: absolute;
+    bottom: 5rem;
+    right: 0;
+    width: 10rem;
+    height: 10rem;
+}
+.name{
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 2px 2px 2px black;
+    margin-top: 7.5rem;
+}
+.playerName{
+    text-align: center;
+    transition: color 0.1s, font-size 0.5s;
+}
+.enemyName{
+    text-align: center;
+    transition: color 0.5s, font-size 0.5s;
+}
+.playerName:hover{
+    color: greenyellow;
+    font-size: 0.970rem;
+}
+.enemyName:hover{
+    color: rgb(255, 47, 75);
+    font-size: 0.970rem;
+}
+/*Barra de Vida*/
+.healthBar{
+    position: absolute;
+    border: solid 0px black;
+    border-radius: 8px;
+    width: 80%;
+    bottom: 0;
+    margin-left: 1rem;
+    margin-bottom: 0rem;
+    height: 1rem;
+    display: flex;
+    overflow: hidden;
+}
+#playerHEALTH{
+    position: relative;
+    bottom: 0;
+    background: greenyellow;
+    width: 100%;
+    height: 1rem;
+}
+#enemyHEALTH{
+    position: relative;
+    bottom: 0;
+    right: 0;
+    background: rgb(255, 47, 75);
+    width: 100%;
+    height: 1rem;
+}
+
+/*Dano*/
+.damage{
+    color: rgba(0, 0, 0, 0);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.damageONPLAYER{
+    position: absolute;
+    bottom: 0;
+    margin-left: 11rem;
+    margin-bottom: 16rem;
+}
+.damageONENEMY{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 11rem;
+    margin-bottom: 16rem;
+}
+.damageAnimation{
+    animation-name: dmgAnim;
+    animation-duration: 2.8s;
+    animation-timing-function: ease-in;
+    animation-direction: alternate;
+}
+@keyframes dmgAnim {
+    0%{color: rgba(0, 0, 0, 0); text-shadow: 2px 2px 2px rgba(0, 0, 0, 0);}
+    10%{color: rgba(255, 0, 0, 0.363); text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.521);}
+    20%{color: red; text-shadow: 2px 2px 2px rgb(0, 0, 0);}
+    30%{color: red; text-shadow: 2px 2px 2px rgb(0, 0, 0);}
+    40%{color: red; text-shadow: 2px 2px 2px rgb(0, 0, 0);}
+    70%{color: red; text-shadow: 2px 2px 2px rgb(0, 0, 0);}
+    90%{color: red; text-shadow: 2px 2px 2px rgb(0, 0, 0);}
+}
+.hidden{
+    display: none;
+    width: 0;
+    height: 0;
+}
+.restart{
+    display: inline;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+    background: white;
+    border-radius: 8px;
+    text-align: center;
+    width: 7rem;
+    height: 1.3rem;
+}
+
+/*Caixa de Turno*/
+.centralizer{
+    display: flex;
+    justify-content: center;
+}
+.turnbox{
+    position: absolute;
+    bottom: 4rem;
+    display: flex;
+    background: linear-gradient(rgb(61, 61, 61), rgb(37, 37, 37));
+    border: solid 2px black;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 20rem;
+    height: 10rem;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+.boxitems{
+    width: 10rem;
+    height: 2rem;
+    border: 2px solid black;
+    border-radius: 8px;
+    background: rgb(146, 255, 146);
+    margin-top: 2px;
+    transition: background 0.1s, width 1.0s, height 1.0s;
+    cursor: pointer;
+}
+.boxitems:hover{
+    background: rgb(203, 255, 71);
+}
+.hiddenButton{
+    width: 0rem;
+    height: 0rem;
+    visibility: hidden;
+}
+@media (max-width: 1024px){
+    .gamebox{
+        width: 100%;
+    }
+    .damageONPLAYER{
+        position: absolute;
+        bottom: 0;
+        margin-left: 1.4rem;
+        margin-bottom: 3rem;
+    }
+    .damageONENEMY{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin-right: 1.4rem;
+        margin-bottom: 3rem;
+    }
+    .turnbox{
+        bottom: 5rem;
+    }
+}

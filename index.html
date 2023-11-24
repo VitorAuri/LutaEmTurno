@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Luta</title>
+</head>
+<body>
+    
+
+    <main class="gamebox">    
+
+        <div class="player">
+            <p class="playerName name">Lula Skate</p>
+            <div class="healthBar">
+                <div id="playerHEALTH"></div>
+            </div>
+        </div>
+
+        <div class="enemy">
+            <p class="enemyName name">Bolsonaro</p>
+            <div class="healthBar">
+                <div id="enemyHEALTH"></div>
+            </div>
+        </div>
+
+
+        <div class="damage">
+            <div class="damageONPLAYER">
+                <h3 id="damageTakenPlayer"></h3>
+            </div>
+            <div class="damageONENEMY">
+                <h3 id="damageTakenEnemy"></h3>
+            </div>
+        </div>
+
+        <div class="background">
+            <img src="img/fundo.jpg" alt="">
+        </div>
+
+    </main>
+
+    <div class="centralizer">
+        <div class="turnbox">
+            <h2 id="warning">Seu Turno</h2>
+            <button id="button1" class="boxitems" onclick="attack()">Atacar</button>
+            <button id="button2" class="boxitems">Items</button>
+            <button id="button3" class="boxitems">Fugir</button>
+            <a id="identify" class="hidden " href="index.html">Tentar denovo</a>
+        </div>
+    </div>
+
+    <!--SCRIPTS-->
+    <script src="general.js"></script>
+</body>
+</html>
